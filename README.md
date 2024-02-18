@@ -24,7 +24,7 @@ To start integrating SakaAI into your daily WhatsApp use, use this link [https:/
 
 
 ## Installation
-Follow these steps to set up SakaGPT on your local environment:
+Follow these steps to set up SakaAI on your local environment:
 
 ### Prerequisites
 
