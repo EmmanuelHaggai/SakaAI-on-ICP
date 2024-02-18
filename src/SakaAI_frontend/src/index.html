@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title> SakaAI: Transforming WhatsApp with AI and Blockchain Brilliance </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="Emmanuel Haggai" name="author" />
+  <!-- favicon -->
+  <!-- <link rel="shortcut icon" href="images/favicon.ico" /> -->
+  <!-- css -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+  <!--My Icon -->
+  <link rel="stylesheet" type="text/css" href="css/my-icons.css" />
+
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="css/colors/yellow.css" id="color-opt">
+
+  <link rel="stylesheet" href="intl_phone_number/css/intlTelInput.css">
+
+  <style>
+    .iti__flag {
+      height: 15px;
+      box-shadow: 0px 0px 1px 0px #888;
+      background-image: url("intl_phone_number/img/flags.png");
+      background-repeat: no-repeat;
+      background-color: #DBDBDB;
+      background-position: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STRAT NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom sticky sticky-dark" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href=""> SakaAI </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="ti-menu text-secondary"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto" id="navbar-navlist">
+          <li class="nav-item active" id="link1">
+            <a data-scroll class="nav-link" id="show_section1">Home</a>
+          </li>
+          <li class="nav-item" id="link2">
+            <a data-scroll class="nav-link" style="display: none;" id="show_section2">Log in</a>
+          </li>
+          <li class="nav-item" id="link3">
+            <a data-scroll class="nav-link" style="display: none;" id="show_section3">Registration</a>
+          </li>
+          <li class="nav-item" id="link4">
+            <a data-scroll class="nav-link" style="display: none;" id="show_section4">My Info</a>
+          </li>
+          <li class="nav-item" id="link5">
+            <a data-scroll class="nav-link" style="display: none;" id="show_section5">Log Out</a>
+          </li>
+        </ul><!-- end ul -->
+
+      </div>
+    </div>
+  </nav>
+  <!-- END NAVBAR -->
+
+  <div id="body_content">
+
+    <section class="section bg-gradient half-home" id="section1" style="display: block;">
+      <div class="home-center">
+        <div class="home-desc-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="text-center">
+                  <h1 class="text-white home-title mb-0">
+                    SakaAI <br /> Transforming WhatsApp with AI and Blockchain Brilliance
+                  </h1>
+                  <div class="mt-4">
+                    <a id="please_wait" style="display: block" class="btn btn-outline-white btn-round active"> Please
+                      wait...</a>
+                    <a id="login" style="display: none" class="btn btn-outline-white btn-round"> Log in with Internet
+                      Identity</a>
+                    <a id="open_whatsapp" target="_blank" rel="noopener noreferrer" style="display: none"
+                      href="https://wa.me/254797656515/?text=Hello" class="btn btn-outline-white btn-round"> Open
+                      WhatsApp </a> &nbsp &nbsp
+                    <a id="logout" style="display: none" class="btn btn-outline-white btn-round"> Log out</a>
+                  </div>
+
+                  <div id="externalData"></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <div id="principal" style="display: none"></div>
+  <div id="principal_data" style="display: none"></div>
+
+  <section class="section" id="section3" style="display: block;">
+    <div class="container">
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-xl-6 col-10">
+          <div class="text-center">
+            <h3 class="title"> <span class="fw-bold">-</span></h3>
+            <p>Bridging Blockchain Brilliance with Your WhatsApp Chats, Simplifying Complexities, One Conversation at a
+              Time.</p>
+
+            <!-- <a id="whoAmI" style="display: block" class="btn btn-outline-white btn-round"> Who Am I</a> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="icpWalletModal" tabindex="-1" aria-labelledby="icpWalletModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="icpWalletModalLabel">Fund Your Wallet</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <p>Ready to boost your wallet? You can easily fund your account by sending funds to the following ICP address:
+          </p>
+
+          <input type="text" class="form-control"
+            value="ccbae455e4d73fff30ae18e7e76247895365c4c5da7233372b1c5a0901a13ea9" readonly>
+          <img src="icp.png" class="img-fluid mt-3 img-thumbnail mx-auto d-block" style="max-height: 200px;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary col-md-12" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <section class="section footer" style="background-image: url('footer-img.png')">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+
+          <div class="text-center">
+            <p class="copy-rights text-muted0 mb-0" style="color: #fff">
+              2024 © Emmanuel Haggai Technologies
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/smooth-scroll.polyfills.min.js"></script>
+  <script src="js/gumshoe.polyfills.min.js"></script>
+  <script src="js/app.js"></script>
+
+
+  <script type="text/javascript" src="intl_phone_number/js/intlTelInput.js"></script>
+
+</body>
+
+</html>
