@@ -22,6 +22,61 @@ SakaAI-on-ICP is designed to revolutionize the way users access information and 
 
 To start integrating SakaAI into your daily WhatsApp use, use this link [https://lsqqh-hyaaa-aaaap-qcabq-cai.icp0.io/](https://lsqqh-hyaaa-aaaap-qcabq-cai.icp0.io/)
 
+
+## Installation
+Follow these steps to set up SakaGPT on your local environment:
+
+### Prerequisites
+
+- A connection to the internet.
+- A command line interface.
+- [Node.js](https://nodejs.org/en) (v18 or later downloaded and installed.)
+- [DFINITY IC SDK,](https://internetcomputer.org/docs/current/developer-docs/setup/install/)
+```bash
+sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+```
+- dfx (v15 or later installed.)
+  ```bash
+  sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+  
+  dfx --version
+
+  echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
+  ```
+   
+### Steps
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/EmmanuelHaggai/SakaAI-on-ICP.git
+   
+   cd SakaAI-on-ICP
+   ```
+   
+2. **Install Dependencies:**
+
+   ```bash
+   npm install @dfinity/auth-client
+   
+   npm install
+   ```
+3. **Pull the interner identity canister using dfx deps:**
+   ```bash
+   dfx deps pull
+   ```
+4. **Initialize the canister:**
+   ```bash
+   dfx deps init internet_identity --argument '(null)'
+   ```
+5. **Deploy to Internet Computer:**
+
+   ```bash
+   dfx start --clean --background
+   dfx deps deploy
+   dfx deploy
+   ```
+
 ## Contribute
 
 SakaAI-on-ICP is an open-source project, and we welcome contributions from the community. Whether it's adding new features, improving existing ones, or helping with documentation, your contributions are invaluable to us.
