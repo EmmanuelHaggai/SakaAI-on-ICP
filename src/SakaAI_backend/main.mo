@@ -444,6 +444,56 @@ actor {
         decoded_text;
     };
 
+    public shared (msg) func ai_image_processing(base64img : Text, img_type : Text, authorization_code : Text) : async Text {
+        let ic : Types.IC = actor ("aaaaa-aa");
+
+        let host : Text = "endpoint.emmanuelhaggai.com";
+        let url = "https://endpoint.emmanuelhaggai.com/icp-img-ai/";
+
+        let now = Int.toText(Time.now());
+        let caller = Principal.toText(msg.caller);
+        let combo = now # caller;
+
+        let idempotency_key : Text = combo;
+        let request_headers = [
+            { name = "Host"; value = host # ":443" },
+            { name = "User-Agent"; value = "http_post_sample" },
+            { name = "Content-Type"; value = "application/json" },
+            { name = "Idempotency-Key"; value = idempotency_key },
+        ];
+
+        let request_body_json : Text = "{ \"base64img\" : \"" # base64img # "\", \"img_type\" : \"" # img_type # "\", \"authorization_code\" : \"" # authorization_code # "\", \"ID\" : \"" # idempotency_key # "\" }";
+        let request_body_as_Blob : Blob = Text.encodeUtf8(request_body_json);
+        let request_body_as_nat8 : [Nat8] = Blob.toArray(request_body_as_Blob);
+
+        let transform_context : Types.TransformContext = {
+            function = transform;
+            context = Blob.fromArray([]);
+        };
+
+        let http_request : Types.HttpRequestArgs = {
+            url = url;
+            max_response_bytes = null;
+            headers = request_headers;
+            body = ?request_body_as_nat8;
+            method = #post;
+            transform = ?transform_context;
+
+        };
+
+        Cycles.add(21_850_258_000);
+
+        let http_response : Types.HttpResponsePayload = await ic.http_request(http_request);
+
+        let response_body : Blob = Blob.fromArray(http_response.body);
+        let decoded_text : Text = switch (Text.decodeUtf8(response_body)) {
+            case (null) { "No value returned" };
+            case (?y) { y };
+        };
+
+        decoded_text;
+    };
+
     public query func transform(raw : Types.TransformArgs) : async Types.CanisterHttpResponsePayload {
         let transformed : Types.CanisterHttpResponsePayload = {
             status = raw.response.status;
