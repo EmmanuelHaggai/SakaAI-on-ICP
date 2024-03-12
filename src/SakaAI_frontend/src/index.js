@@ -41,18 +41,6 @@ try {
     document.getElementById('login').style.display = 'none';
     document.getElementById('show_section2').style.display = 'none';
 
-    if (window.location.hash) {
-
-      const hash = window.location.hash;
-
-      if (hash === "#topup") {
-        openFundWalletModal();
-      }
-
-
-    } else {
-      // console.log("empty hash");
-    }
 
   } else {
     // console.log('User is not logged in - improved');
@@ -108,7 +96,6 @@ logout2.onclick = async (e) => {
 
   return false;
 };
-
 
 const loginButton = document.getElementById("login");
 
@@ -227,6 +214,22 @@ async function checkRegistrationStatus(principal_text) {
       if (principal_data_principal === principal_text) {
         document.getElementById("show_section4").style.display = "block";
         document.getElementById("open_whatsapp").style.display = "block";
+
+        //now check for pending transactions and stuff
+        if (window.location.hash) {
+
+          const hash = window.location.hash;
+    
+          if (hash === "#topup") {
+            openFundWalletModal();
+          } else if (hash === "#buy_airtime") {
+            openAirtimeModal();
+          }
+    
+    
+        } else {
+          // console.log("empty hash");
+        }
 
 
       } else {

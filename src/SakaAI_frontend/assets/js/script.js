@@ -414,6 +414,100 @@ function openFundWalletModal() {
   modal.show();
 }
 
+
+function openAirtimeModal() {
+  //populate data using js - icpAirtimeModalBody
+  
+  const airtime_principal = document.getElementById("principal").textContent;
+  
+  const postData = {
+    principal: airtime_principal
+  };
+
+  updateTransactionState('https://api.emmanuelhaggai.com/icp-airtime/', postData)
+    .then(html => {
+      document.getElementById('icpAirtimeModalBody').innerHTML = html;
+      attachOnClickEventListenerToClass('btn-transaction');
+    });
+
+
+  //create the button event listners
+  attachOnClickEventListenerToClass('btn-transaction');
+
+  // open the modal
+  var modal = new bootstrap.Modal(document.getElementById('icpAirtimeModal'));
+  modal.show();
+
+}
+
 function removeHashFromUrl() {
   history.pushState("", document.title, window.location.pathname + window.location.search);
 }
+
+
+function attachOnClickEventListenerToClass(className) {
+  const elements = document.querySelectorAll('.' + className);
+
+  function handleClick(event) {
+    const clickedElement = event.target;
+
+    const relValue = clickedElement.getAttribute('rel');
+    const actionValue = clickedElement.getAttribute('action');
+
+    //disable button and change text
+    clickedElement.disabled = true;
+    clickedElement.textContent = "Processing...";
+
+    // console.log('Element clicked with value:', relValue, actionValue);
+    const airtime_principal = document.getElementById("principal").textContent;
+
+    const postData = {
+      relValue: relValue,
+      principal: airtime_principal,
+      actionValue: actionValue,
+    };
+
+    updateTransactionState('https://api.emmanuelhaggai.com/icp-airtime/', postData)
+      .then(html => {
+        document.getElementById('icpAirtimeModalBody').innerHTML = html;
+        attachOnClickEventListenerToClass('btn-transaction');
+      });
+
+  }
+
+  elements.forEach(function (element) {
+    element.addEventListener('click', handleClick);
+  });
+}
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   attachOnClickEventListenerToClass('btn-transaction');
+// });
+
+
+function updateTransactionState(url, data) {
+  const formData = new FormData();
+
+  for (const key in data) {
+    formData.append(key, data[key]);
+  }
+
+  return fetch(url, {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(html => {
+      return html;
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
