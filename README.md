@@ -7,6 +7,7 @@ Welcome to the official repository of SakaAI-on-ICP, the pioneering AI-driven ch
 SakaAI-on-ICP is designed to revolutionize the way users access information and services. By integrating advanced AI capabilities with the robust, secure, and scalable infrastructure of the ICP blockchain, SakaAI offers a new dimension of privacy, efficiency, and personalization in digital communication. Accessible through the familiar interface of WhatsApp, SakaAI makes it effortless for users to perform a wide range of tasks - from securing transactions and accessing information to receiving personalized recommendations and managing daily activities.
 
 ## Some usefull links
+- Product Demo: https://www.youtube.com/watch?v=YSzUED0uFCs
 - SakaAI Frontend Canister: https://lsqqh-hyaaa-aaaap-qcabq-cai.icp0.io/
 - SakaAI Backend Canister:  https://a4gq6-oaaaa-aaaab-qaa4q-cai.raw.icp0.io/?id=lvrwt-kaaaa-aaaap-qcaba-cai
 
